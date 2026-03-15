@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hamza Parvez — Security Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --bg:    #07090f;
+  --bg2:   #0c0f1a;
+  --panel: #101424;
+  --blue:  #4f8ef7;
+  --blue-dim: #2d5fc4;
+  --blue-faint: rgba(79,142,247,0.07);
+  --blue-glow:  rgba(79,142,247,0.15);
+  --text:  #a8b8d8;
+  --light: #dde6f5;
+  --muted: #3d4f70;
+  --line:  rgba(79,142,247,0.13);
+  --sans:  'Syne', sans-serif;
+  --mono:  'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--blue-dim); }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* subtle grid background */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(79,142,247,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,142,247,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none; z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3.5rem; height: 58px;
+  background: rgba(7,9,15,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.nav-logo em {
+  color: var(--blue);
+  font-style: normal;
+}
+.nav-links { display: flex; gap: 2.4rem; list-style: none; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--blue); }
+
+/* ── HERO ── */
+#hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 7rem 3.5rem 5rem;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* glowing orb */
+#hero::after {
+  content: '';
+  position: absolute;
+  top: 10%; right: 5%;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.6rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.hero-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: var(--blue);
+}
+
+h1.hero-name {
+  font-family: var(--sans);
+  font-size: clamp(3.8rem, 9vw, 8rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 1.6rem;
+}
+h1.hero-name .accent { color: var(--blue); }
+
+.hero-tagline {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.8rem;
+  max-width: 560px;
+}
+
+.hero-desc {
+  max-width: 520px;
+  color: var(--text);
+  opacity: 0.65;
+  line-height: 1.9;
+  font-size: 12.5px;
+  margin-bottom: 3rem;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  background: transparent;
+  transition: all 0.2s;
+  position: relative; overflow: hidden;
+}
+.btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--blue);
+  transform: translateX(-101%);
+  transition: transform 0.22s ease;
+}
+.btn span { position: relative; z-index: 1; }
+.btn:hover::before { transform: translateX(0); }
+.btn:hover { color: var(--bg); }
+
+.btn-outline {
+  border-color: var(--muted); color: var(--muted);
+}
+.btn-outline::before { background: var(--muted); }
+.btn-outline:hover { color: var(--bg); }
+
+/* hero right side tag */
+.hero-side {
+  position: absolute; right: 3.5rem; bottom: 4rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+  align-items: flex-end;
+}
+.hero-tag-pill {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 0.3rem 0.8rem;
+  background: var(--blue-faint);
+}
+
+/* ── SECTIONS ── */
+.section-wrap {
+  position: relative; z-index: 1;
+  padding: 5.5rem 3.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sec-head {
+  display: flex; align-items: center; gap: 1.2rem;
+  margin-bottom: 3.5rem;
+}
+.sec-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid var(--line);
+  background: var(--blue-faint);
+  padding: 0.2rem 0.8rem;
+}
+.sec-title {
+  font-family: var(--sans);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.sec-rule { flex: 1; height: 1px; background: var(--line); }
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+.about-text p { color: var(--text); margin-bottom: 1.2rem; line-height: 1.9; opacity: 0.8; font-size: 12.5px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-text strong { color: var(--light); font-weight: 500; }
+
+.info-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 2rem;
+  display: flex; flex-direction: column; gap: 1.6rem;
+}
+.info-row {}
+.info-label {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 0.3rem;
+}
+.info-val { color: var(--light); font-size: 12px; line-height: 1.6; }
+
+/* ── EXPERIENCE ── */
+.exp-item {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 2.5rem; padding: 2.2rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s;
+}
+.exp-item:first-child { border-top: 1px solid var(--line); }
+.exp-item:hover { background: var(--blue-faint); margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+
+.exp-meta {}
+.exp-date { color: var(--muted); font-size: 11px; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.exp-type {
+  display: inline-block;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid var(--line);
+  padding: 0.15rem 0.55rem;
+}
+.exp-company {
+  font-family: var(--sans);
+  font-size: 1.05rem; font-weight: 600;
+  color: #fff; letter-spacing: 0.01em; margin-bottom: 0.2rem;
+}
+.exp-role {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 0.7rem;
+}
+.exp-desc { color: var(--text); opacity: 0.7; font-size: 12px; line-height: 1.8; }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line);
+}
+.skill-group {
+  background: var(--bg);
+  padding: 2rem 2rem 2.2rem;
+  transition: background 0.2s;
+}
+.skill-group:hover { background: var(--panel); }
+.sg-title {
+  font-family: var(--sans);
+  font-size: 0.85rem; font-weight: 600; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.skill-items { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.skill-chip {
+  font-size: 11px; color: var(--text); opacity: 0.8;
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.7rem;
+  transition: all 0.15s;
+}
+.skill-chip:hover { color: var(--blue); border-color: var(--blue); opacity: 1; }
+
+/* ── AWARDS ── */
+.awards-intro { color: var(--text); opacity: 0.65; max-width: 580px; margin-bottom: 3rem; line-height: 1.9; font-size: 12.5px; }
+.award-table { width: 100%; border-collapse: collapse; }
+.award-table thead tr { border-bottom: 1px solid rgba(79,142,247,0.25); }
+.award-table th {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue); padding: 0.5rem 1rem 0.9rem; text-align: left; font-weight: 400;
+}
+.award-table tbody tr { border-bottom: 1px solid var(--line); transition: background 0.15s; }
+.award-table tbody tr:hover { background: var(--blue-faint); }
+.award-table td { padding: 0.9rem 1rem; font-size: 12px; vertical-align: middle; }
+.td-year { color: var(--blue); font-size: 11px; white-space: nowrap; opacity: 0.8; }
+.td-award { color: var(--light); }
+.td-org { color: var(--muted); font-size: 11px; }
+.badge-win {
+  display: inline-block;
+  font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  background: rgba(79,142,247,0.12);
+  border: 1px solid rgba(79,142,247,0.3);
+  color: var(--blue); margin-left: 0.5rem; vertical-align: middle;
+}
+
+/* ── CONTACT ── */
+#contact { background: var(--bg2); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-heading {
+  font-family: var(--sans);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700; color: #fff; line-height: 1.35;
+  margin-bottom: 1rem; letter-spacing: -0.01em;
+}
+.contact-sub { color: var(--text); opacity: 0.6; font-size: 12.5px; line-height: 1.9; }
+
+.contact-links { display: flex; flex-direction: column; }
+.c-link {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none; color: inherit;
+  transition: padding-left 0.2s;
+}
+.c-link:hover { padding-left: 0.6rem; }
+.c-link-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.c-link-val { color: var(--blue); font-size: 12px; }
+.c-link-arrow { color: var(--muted); font-size: 14px; transition: color 0.2s; }
+.c-link:hover .c-link-arrow { color: var(--blue); }
+
+.footer {
+  margin-top: 4.5rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: var(--muted); }
+.footer-loc { font-size: 11px; color: var(--muted); }
+.footer-loc span { color: var(--blue); }
+
+/* ── ANIMATIONS ── */
+.fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-in.vis { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  #hero { padding: 5.5rem 1.5rem 4rem; }
+  .hero-side { display: none; }
+  .section-wrap { padding: 4rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+  .exp-item:hover { margin: 0; padding-left: 0; padding-right: 0; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .award-table .td-org { display: none; }
+}
+/* ── HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: 4px; z-index: 600;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  display: none;
+  position: fixed; top: 58px; left: 0; right: 0;
+  background: rgba(7,9,15,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 490;
+  padding: 1.5rem 1.5rem 2rem;
+  flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.2s;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--blue); }
+
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Hamza <em>Parvez</em></div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about"      onclick="closeMenu()">About</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#skills"     onclick="closeMenu()">Skills</a>
+  <a href="#awards"     onclick="closeMenu()">Awards</a>
+  <a href="#contact"    onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-kicker fade-in">Security Engineer · Nairobi, Kenya</div>
+  <h1 class="hero-name fade-in" style="transition-delay:.1s">
+    HAMZA<br/><span class="accent">PARVEZ</span>
+  </h1>
+  <p class="hero-tagline fade-in" style="transition-delay:.2s">
+    Identity Security · Penetration Testing · CTFs
+  </p>
+  <p class="hero-desc fade-in" style="transition-delay:.28s">
+    I approach security from both the builder's and the adversary's perspective —
+    ensuring every defence is grounded in real exploit behaviour, not theory alone.
+  </p>
+  <div class="hero-actions fade-in" style="transition-delay:.36s">
+    <a href="#contact" class="btn"><span>Get in touch</span></a>
+    <a href="#awards" class="btn btn-outline"><span>View awards</span></a>
+  </div>
+
+  <div class="hero-side fade-in" style="transition-delay:.44s">
+    <div class="hero-tag-pill">IAM · PAM · SSO · MFA</div>
+    <div class="hero-tag-pill">Penetration Testing</div>
+    <div class="hero-tag-pill">AD · OSINT · Crypto</div>
+    <div class="hero-tag-pill">East Africa Community and Beyond</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-wrap" id="about">
+  <div class="sec-head fade-in">
+    <div class="sec-label">01</div>
+    <h2 class="sec-title">About</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>I am a Security Engineer specialising in <strong>identity security</strong> spanning IAM, PAM, SSO, and MFA among others, as well as vulnerability assessment and penetration testing. My work focuses on strengthening systems by understanding how access is granted, how controls can fail, and where security measures need reinforcing.</p>
+      <p>I approach every engagement from <strong>both the builder's and the adversary's perspective</strong>. Hands-on CTF problem-solving sharpens my ability to analyse systems, trace attack paths, and develop practical mitigation strategies, keeping security decisions grounded in real exploit behaviour rather than theory alone.</p>
+      <p>Beyond my day-to-day engineering work, I'm deeply involved in the East African security community from organising HTB meetups, speaking at events, and authoring challenges that help sharpen the next generation of defenders across Kenya, Uganda, and internationally.</p>
+      <p>I value <strong>clarity, reliability, and continuous refinement</strong>. My goal is to contribute to scalable, resilient security foundations that enable organisations to operate with confidence.</p>
+    </div>
+    <div class="fade-in" style="transition-delay:.1s">
+      <div class="info-card">
+        <div class="info-row">
+          <div class="info-label">Current Role</div>
+          <div class="info-val">Cyber Security Engineer<br/>Isolutions Associates Ltd</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Based in</div>
+          <div class="info-val">Nairobi, Kenya</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">CTF Team</div>
+          <div class="info-val">p3rf3ctr00t</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Communities</div>
+          <div class="info-val">Hack The Box · Bug Bounty KE<br/>Uguntu · CTFROOM · CTFZone</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Focus</div>
+          <div class="info-val">Identity Security · Offensive Sec<br/>AD · Osint</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section-wrap" id="experience">
+  <div class="sec-head fade-in">
+    <div class="sec-label">02</div>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="fade-in">
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Aug 2023 – Present</div>
+        <div class="exp-type">Full-time</div>
+      </div>
+      <div>
+        <div class="exp-company">Isolutions Associates Ltd</div>
+        <div class="exp-role">Cyber Security Engineer</div>
+        <div class="exp-desc">Identity security, vulnerability assessments, and security hardening across enterprise environments. Translating offensive findings into actionable, resilient defensive architecture.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2026 – Present</div>
+        <div class="exp-type">Organiser</div>
+      </div>
+      <div>
+        <div class="exp-company">Hack The Box Uganda</div>
+        <div class="exp-role">Meetup Organiser</div>
+        <div class="exp-desc">Organising community meetups for the Ugandan HTB chapter; building a network of practitioners and fostering local security talent.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2025 – Present</div>
+        <div class="exp-type">Speaker</div>
+      </div>
+      <div>
+        <div class="exp-company">Hack The Box Kenya</div>
+        <div class="exp-role">HTB Kenya Meetup Speaker</div>
+        <div class="exp-desc">Regular speaker at Kenyan HTB community events on offensive security, CTF strategy, and practical vulnerability research.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Mar 2024 – Present</div>
+        <div class="exp-type">Seasonal</div>
+      </div>
+      <div>
+        <div class="exp-company">CTFROOM</div>
+        <div class="exp-role">Content Engineer</div>
+        <div class="exp-desc">Designing and authoring CTF challenges across OSINT, cryptography, and security domains for competitions and training platforms across East Africa.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Dec 2025 – Present</div>
+        <div class="exp-type">Remote</div>
+      </div>
+      <div>
+        <div class="exp-company">CTFZone Labs</div>
+        <div class="exp-role">Content Engineer</div>
+        <div class="exp-desc">Remote challenge authoring, contributing high-quality problem sets to international CTF competition platforms.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Sep 2020 – Present</div>
+        <div class="exp-type">Community</div>
+      </div>
+      <div>
+        <div class="exp-company">Uguntu</div>
+        <div class="exp-role">Content Engineer & Community Contributor</div>
+        <div class="exp-desc">Long-standing contributor to Uganda's cybersecurity community; creating educational content, running competitions, and mentoring emerging security professionals.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2021 – Present</div>
+        <div class="exp-type">Community</div>
+      </div>
+      <div>
+        <div class="exp-company">Bug Bounty KE</div>
+        <div class="exp-role">Community Member</div>
+        <div class="exp-desc">Active member of Kenya's bug bounty community — sharing vulnerability research and contributing to the local offensive security ecosystem.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section-wrap" id="skills">
+  <div class="sec-head fade-in">
+    <div class="sec-label">03</div>
+    <h2 class="sec-title">Skills</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="skills-grid fade-in">
+    <div class="skill-group">
+      <div class="sg-title">Identity Security</div>
+      <div class="skill-items">
+        <span class="skill-chip">IAM</span>
+        <span class="skill-chip">PAM</span>
+        <span class="skill-chip">SSO</span>
+        <span class="skill-chip">MFA</span>
+        <span class="skill-chip">Zero Trust</span>
+        <span class="skill-chip">Access Control</span>
+        <span class="skill-chip">Privileged Access</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Offensive Security</div>
+      <div class="skill-items">
+        <span class="skill-chip">Penetration Testing</span>
+        <span class="skill-chip">Vulnerability Assessment</span>
+        <span class="skill-chip">Exploit Development</span>
+        <span class="skill-chip">Red Teaming</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Specialisations</div>
+      <div class="skill-items">
+        <span class="skill-chip">OSINT</span>
+        <span class="skill-chip">Cryptography</span>
+        <span class="skill-chip">Web App Security</span>
+        <span class="skill-chip">Attack Path Analysis</span>
+        <span class="skill-chip">Threat Modelling</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Tools</div>
+      <div class="skill-items">
+        <span class="skill-chip">Burp Suite</span>
+        <span class="skill-chip">Nmap</span>
+        <span class="skill-chip">Metasploit</span>
+        <span class="skill-chip">Wireshark</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Defensive</div>
+      <div class="skill-items">
+        <span class="skill-chip">Security Hardening</span>
+        <span class="skill-chip">Incident Response</span>
+        <span class="skill-chip">Security Architecture</span>
+        <span class="skill-chip">Risk Assessment</span>
+        <span class="skill-chip">Control Validation</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Community & Leadership</div>
+      <div class="skill-items">
+        <span class="skill-chip">Challenge Authoring</span>
+        <span class="skill-chip">Public Speaking</span>
+        <span class="skill-chip">Event Organisation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="section-wrap" id="awards">
+  <div class="sec-head fade-in">
+    <div class="sec-label">04</div>
+    <h2 class="sec-title">Awards & Contributions</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <p class="awards-intro fade-in">Competition wins and challenge authorships across East Africa and internationally; contributing to the security community through high-quality, real-world problem sets.</p>
+  <div class="fade-in">
+    <table class="award-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Award / Contribution</th>
+          <th>Organisation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-year">2026</td><td class="td-award">Challenge Author — 0xfun CTF 2026</td><td class="td-org">0xfun</td></tr>
+        <tr><td class="td-year">2026</td><td class="td-award">Challenge Author — MKU/Zetech CTF 2026</td><td class="td-org">MKU / Zetech University</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Winner — AfricaCERT FIRST Cyber Drill <span class="badge-win">winner</span></td><td class="td-org">AfricaCERT · p3rf3ctr00t</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Winner — Cyberlympics Kenya 2025 <span class="badge-win">winner</span></td><td class="td-org">Africa Cyber Defense Forum</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author & Instructor — Cyber Stars Uganda 2025</td><td class="td-org">UCC & UgCert · Uguntu</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Nahamcon Winter CTF 2025</td><td class="td-org">Nahamcon</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — P3rf3ctr00t CTF 2025</td><td class="td-org">p3rf3ctr00t</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — BitSiege CTF 2025</td><td class="td-org">Bitwall.ke</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — CyberQuest CTF 2025</td><td class="td-org">CTFROOM & Tech Sisters Kenya</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Dewald Roode Hackathon 2025</td><td class="td-org">CTFROOM & USIU</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — HackFridays CTF 2025</td><td class="td-org">CTFROOM</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Black Awareness OSINT CTF 2025</td><td class="td-org">CTFROOM</td></tr>
+        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Digital Safe Ltd Zambia CTF 2025</td><td class="td-org">CTFROOM & DSL Zambia</td></tr>
+        <tr><td class="td-year">2024</td><td class="td-award">Runners Up — BIC Defcon CTF 2024 <span class="badge-win">top 2</span></td><td class="td-org">Blacks in Cyber & Defcon</td></tr>
+        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — Bsides Nairobi CTF 2024</td><td class="td-org">Bsides Nairobi</td></tr>
+        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — P3rf3ctr00t CTF 2024</td><td class="td-org">p3rf3ctr00t</td></tr>
+        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — East Africa Intervarsity CTF 2024</td><td class="td-org">CTFROOM</td></tr>
+        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — CyberPro CTF 2024</td><td class="td-org">CTFROOM</td></tr>
+        <tr><td class="td-year">2022</td><td class="td-award">Winner — Cyber Stars Uganda Competition 2022 <span class="badge-win">winner</span></td><td class="td-org">Cyber Ranges & UCC</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-wrap" id="contact">
+  <div class="sec-head fade-in">
+    <div class="sec-label">05</div>
+    <h2 class="sec-title">Contact</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="fade-in">
+      <div class="contact-heading">Working on identity security, application hardening, or offensive-informed defence?</div>
+      <p class="contact-sub">I'm always open to connect, collaborate, and exchange ideas with people pushing the field forward. Reach out. Let's talk.</p>
+    </div>
+    <div class="fade-in" style="transition-delay:.1s">
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/hamza-parvez/" target="_blank" class="c-link">
+          <span class="c-link-label">LinkedIn</span>
+          <span class="c-link-val">Hamza Parvez</span>
+          <span class="c-link-arrow">↗</span>
+        </a>
+        <a href="mailto:hamza@example.com" class="c-link">
+          <span class="c-link-label">Email</span>
+          <span class="c-link-val">hamza@example.com</span>
+          <span class="c-link-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer fade-in">
+    <div class="footer-copy">© 2026 Hamza Parvez</div>
+    <div class="footer-loc">Nairobi, <span>Kenya</span></div>
+  </div>
+</section>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+</body>
+</html>
