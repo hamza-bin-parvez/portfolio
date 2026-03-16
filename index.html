@@ -39,11 +39,7 @@ nav{
 .nav-logo{font-family:var(--sans);font-weight:800;font-size:1rem;color:#fff;letter-spacing:0.04em;}
 .nav-logo em{color:var(--blue);font-style:normal;}
 .nav-links{display:flex;gap:2.4rem;list-style:none;}
-.nav-links a{
-  color:#8ba4cc;
-  text-decoration:none;font-family:var(--mono);
-  font-size:12px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;
-}
+.nav-links a{color:#8ba4cc;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:#fff;}
 
 /* HERO */
@@ -161,9 +157,8 @@ h1.hero-name .accent{color:var(--blue);}
 .footer-loc{font-size:12px;color:var(--muted);}
 .footer-loc span{color:var(--blue);}
 
-/* ANIMATIONS */
-.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
-.fade-in.vis{opacity:1;transform:translateY(0);}
+/* ANIMATIONS — no fade, content always visible */
+.fade-in{opacity:1;transform:none;}
 
 /* HAMBURGER */
 .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:600;}
@@ -217,6 +212,7 @@ h1.hero-name .accent{color:var(--blue);}
     <li><a href="#skills">Skills</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#certs">Certs</a></li>
+    <li><a href="https://blog.lordsudo.com" target="_blank">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -228,20 +224,21 @@ h1.hero-name .accent{color:var(--blue);}
   <a href="#skills"     onclick="closeMenu()">Skills</a>
   <a href="#awards"     onclick="closeMenu()">Awards</a>
   <a href="#certs"      onclick="closeMenu()">Certs</a>
+  <a href="https://blog.lordsudo.com" target="_blank" onclick="closeMenu()">Blog</a>
   <a href="#contact"    onclick="closeMenu()">Contact</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-kicker fade-in">Security Engineer · Nairobi, Kenya</div>
-  <h1 class="hero-name fade-in" style="transition-delay:.1s">HAMZA<br/><span class="accent">PARVEZ</span></h1>
-  <p class="hero-tagline fade-in" style="transition-delay:.2s">Identity Security · Penetration Testing · CTFs</p>
-  <p class="hero-desc fade-in" style="transition-delay:.28s">I approach security from both the builder's and the adversary's perspective — ensuring every defence is grounded in real exploit behaviour, not theory alone.</p>
-  <div class="hero-actions fade-in" style="transition-delay:.36s">
+  <div class="hero-kicker">Security Engineer · Nairobi, Kenya</div>
+  <h1 class="hero-name">HAMZA<br/><span class="accent">PARVEZ</span></h1>
+  <p class="hero-tagline">Identity Security · Penetration Testing · CTFs</p>
+  <p class="hero-desc">I approach security from both the builder's and the adversary's perspective — ensuring every defence is grounded in real exploit behaviour, not theory alone.</p>
+  <div class="hero-actions">
     <a href="#contact" class="btn"><span>Get in touch</span></a>
     <a href="#awards" class="btn btn-outline"><span>View awards</span></a>
   </div>
-  <div class="hero-side fade-in" style="transition-delay:.44s">
+  <div class="hero-side">
     <div class="hero-tag-pill">IAM · PAM · SSO · MFA</div>
     <div class="hero-tag-pill">Penetration Testing</div>
     <div class="hero-tag-pill">AD · OSINT · Crypto</div>
@@ -251,19 +248,19 @@ h1.hero-name .accent{color:var(--blue);}
 
 <!-- ABOUT -->
 <section class="section-wrap" id="about">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">01</div>
     <h2 class="sec-title">About</h2>
     <div class="sec-rule"></div>
   </div>
   <div class="about-grid">
-    <div class="about-text fade-in">
+    <div class="about-text">
       <p>I am a Security Engineer specialising in <strong>identity security</strong> spanning IAM, PAM, SSO, and MFA among others, as well as vulnerability assessment and penetration testing. My work focuses on strengthening systems by understanding how access is granted, how controls can fail, and where security measures need reinforcing.</p>
       <p>I approach every engagement from <strong>both the builder's and the adversary's perspective</strong>. Hands-on CTF problem-solving sharpens my ability to analyse systems, trace attack paths, and develop practical mitigation strategies, keeping security decisions grounded in real exploit behaviour rather than theory alone.</p>
       <p>Beyond my day-to-day engineering work, I'm deeply involved in the East African security community from organising HTB meetups, speaking at events, and authoring challenges that help sharpen the next generation of defenders across Kenya, Uganda, and internationally.</p>
       <p>I value <strong>clarity, reliability, and continuous refinement</strong>. My goal is to contribute to scalable, resilient security foundations that enable organisations to operate with confidence.</p>
     </div>
-    <div class="fade-in" style="transition-delay:.1s">
+    <div>
       <div class="info-card">
         <div class="info-row"><div class="info-label">Current Role</div><div class="info-val">Cyber Security Engineer<br/>Isolutions Associates Ltd</div></div>
         <div class="info-row"><div class="info-label">Based in</div><div class="info-val">Nairobi, Kenya</div></div>
@@ -277,12 +274,12 @@ h1.hero-name .accent{color:var(--blue);}
 
 <!-- EXPERIENCE -->
 <section class="section-wrap" id="experience">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">02</div>
     <h2 class="sec-title">Experience</h2>
     <div class="sec-rule"></div>
   </div>
-  <div class="fade-in">
+  <div>
     <div class="exp-item">
       <div class="exp-meta"><div class="exp-date">Aug 2023 – Present</div><div class="exp-type">Full-time</div></div>
       <div><div class="exp-company">Isolutions Associates Ltd</div><div class="exp-role">Cyber Security Engineer</div><div class="exp-desc">Identity security, vulnerability assessments, and security hardening across enterprise environments. Translating offensive findings into actionable, resilient defensive architecture.</div></div>
@@ -316,12 +313,12 @@ h1.hero-name .accent{color:var(--blue);}
 
 <!-- PROJECTS -->
 <section class="section-wrap" id="projects">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">03</div>
     <h2 class="sec-title">Projects</h2>
     <div class="sec-rule"></div>
   </div>
-  <div class="projects-grid fade-in">
+  <div class="projects-grid">
     <div class="proj-card">
       <div class="proj-header"><div class="proj-stat">15+</div><div class="proj-badge">Identity Security</div></div>
       <div class="proj-name">Enterprise PAM Deployments</div>
@@ -357,26 +354,26 @@ h1.hero-name .accent{color:var(--blue);}
 
 <!-- SKILLS -->
 <section class="section-wrap" id="skills">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">04</div>
     <h2 class="sec-title">Skills</h2>
     <div class="sec-rule"></div>
   </div>
-  <div class="skills-grid fade-in">
+  <div class="skills-grid">
     <div class="skill-group">
       <div class="sg-title">Identity Security</div>
       <div class="skill-items"><span class="skill-chip">IAM</span><span class="skill-chip">PAM</span><span class="skill-chip">SSO</span><span class="skill-chip">MFA</span><span class="skill-chip">Zero Trust</span><span class="skill-chip">Access Control</span><span class="skill-chip">Privileged Access</span></div>
     </div>
     <div class="skill-group">
       <div class="sg-title">Offensive Security</div>
-      <div class="skill-items"><span class="skill-chip">Penetration Testing</span><span class="skill-chip">Vulnerability Assessment</span><span class="skill-chip">Active Directory</span><span class="skill-chip">Recon</span></div>
+      <div class="skill-items"><span class="skill-chip">Penetration Testing</span><span class="skill-chip">Vulnerability Assessment</span><span class="skill-chip">Exploit Development</span><span class="skill-chip">Red Teaming</span></div>
     </div>
     <div class="skill-group">
       <div class="sg-title">Specialisations</div>
-      <div class="skill-items"><span class="skill-chip">OSINT</span><span class="skill-chip">Cryptography</span><span class="skill-chip">Active Directory</span><span class="skill-chip">Attack Path Analysis</span><span class="skill-chip">Threat Modelling</span></div>
+      <div class="skill-items"><span class="skill-chip">OSINT</span><span class="skill-chip">Cryptography</span><span class="skill-chip">Web App Security</span><span class="skill-chip">Attack Path Analysis</span><span class="skill-chip">Threat Modelling</span></div>
     </div>
     <div class="skill-group">
-      <div class="sg-title">Defensive</div>
+      <div class="sg-title">Defensive Security</div>
       <div class="skill-items"><span class="skill-chip">Security Hardening</span><span class="skill-chip">Incident Response</span><span class="skill-chip">Security Architecture</span><span class="skill-chip">Risk Assessment</span><span class="skill-chip">Control Validation</span></div>
     </div>
     <div class="skill-group">
@@ -388,48 +385,46 @@ h1.hero-name .accent{color:var(--blue);}
 
 <!-- AWARDS -->
 <section class="section-wrap" id="awards">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">05</div>
     <h2 class="sec-title">Awards & Contributions</h2>
     <div class="sec-rule"></div>
   </div>
-  <p class="awards-intro fade-in">Competition wins and challenge authorships across East Africa and internationally; contributing to the security community through high-quality, real-world problem sets.</p>
-  <div class="fade-in">
-    <table class="award-table">
-      <thead><tr><th>Year</th><th>Award / Contribution</th><th>Organisation</th></tr></thead>
-      <tbody>
-        <tr><td class="td-year">2026</td><td class="td-award">Challenge Author — 0xfun CTF 2026</td><td class="td-org">0xfun</td></tr>
-        <tr><td class="td-year">2026</td><td class="td-award">Challenge Author — MKU/Zetech CTF 2026</td><td class="td-org">MKU / Zetech University</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Winner — AfricaCERT FIRST Cyber Drill <span class="badge-win">winner</span></td><td class="td-org">AfricaCERT · p3rf3ctr00t</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Winner — Cyberlympics Kenya 2025 <span class="badge-win">winner</span></td><td class="td-org">Africa Cyber Defense Forum</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author & Instructor — Cyber Stars Uganda 2025</td><td class="td-org">UCC & UgCert · Uguntu</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Nahamcon Winter CTF 2025</td><td class="td-org">Nahamcon</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — P3rf3ctr00t CTF 2025</td><td class="td-org">p3rf3ctr00t</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — BitSiege CTF 2025</td><td class="td-org">Bitwall.ke</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — CyberQuest CTF 2025</td><td class="td-org">CTFROOM & Tech Sisters Kenya</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Dewald Roode Hackathon 2025</td><td class="td-org">CTFROOM & USIU</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — HackFridays CTF 2025</td><td class="td-org">CTFROOM</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Black Awareness OSINT CTF 2025</td><td class="td-org">CTFROOM</td></tr>
-        <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Digital Safe Ltd Zambia CTF 2025</td><td class="td-org">CTFROOM & DSL Zambia</td></tr>
-        <tr><td class="td-year">2024</td><td class="td-award">Runners Up — BIC Defcon CTF 2024 <span class="badge-win">top 2</span></td><td class="td-org">Blacks in Cyber & Defcon</td></tr>
-        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — Bsides Nairobi CTF 2024</td><td class="td-org">Bsides Nairobi</td></tr>
-        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — P3rf3ctr00t CTF 2024</td><td class="td-org">p3rf3ctr00t</td></tr>
-        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — East Africa Intervarsity CTF 2024</td><td class="td-org">CTFROOM</td></tr>
-        <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — CyberPro CTF 2024</td><td class="td-org">CTFROOM</td></tr>
-        <tr><td class="td-year">2022</td><td class="td-award">Winner — Cyber Stars Uganda Competition 2022 <span class="badge-win">winner</span></td><td class="td-org">Cyber Ranges & UCC</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <p class="awards-intro">Competition wins and challenge authorships across East Africa and internationally; contributing to the security community through high-quality, real-world problem sets.</p>
+  <table class="award-table">
+    <thead><tr><th>Year</th><th>Award / Contribution</th><th>Organisation</th></tr></thead>
+    <tbody>
+      <tr><td class="td-year">2026</td><td class="td-award">Challenge Author — 0xfun CTF 2026</td><td class="td-org">0xfun</td></tr>
+      <tr><td class="td-year">2026</td><td class="td-award">Challenge Author — MKU/Zetech CTF 2026</td><td class="td-org">MKU / Zetech University</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Winner — AfricaCERT FIRST Cyber Drill <span class="badge-win">winner</span></td><td class="td-org">AfricaCERT · p3rf3ctr00t</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Winner — Cyberlympics Kenya 2025 <span class="badge-win">winner</span></td><td class="td-org">Africa Cyber Defense Forum</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author & Instructor — Cyber Stars Uganda 2025</td><td class="td-org">UCC & UgCert · Uguntu</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Nahamcon Winter CTF 2025</td><td class="td-org">Nahamcon</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — P3rf3ctr00t CTF 2025</td><td class="td-org">p3rf3ctr00t</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — BitSiege CTF 2025</td><td class="td-org">Bitwall.ke</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — CyberQuest CTF 2025</td><td class="td-org">CTFROOM & Tech Sisters Kenya</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Dewald Roode Hackathon 2025</td><td class="td-org">CTFROOM & USIU</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — HackFridays CTF 2025</td><td class="td-org">CTFROOM</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Black Awareness OSINT CTF 2025</td><td class="td-org">CTFROOM</td></tr>
+      <tr><td class="td-year">2025</td><td class="td-award">Challenge Author — Digital Safe Ltd Zambia CTF 2025</td><td class="td-org">CTFROOM & DSL Zambia</td></tr>
+      <tr><td class="td-year">2024</td><td class="td-award">Runners Up — BIC Defcon CTF 2024 <span class="badge-win">top 2</span></td><td class="td-org">Blacks in Cyber & Defcon</td></tr>
+      <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — Bsides Nairobi CTF 2024</td><td class="td-org">Bsides Nairobi</td></tr>
+      <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — P3rf3ctr00t CTF 2024</td><td class="td-org">p3rf3ctr00t</td></tr>
+      <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — East Africa Intervarsity CTF 2024</td><td class="td-org">CTFROOM</td></tr>
+      <tr><td class="td-year">2024</td><td class="td-award">Challenge Author — CyberPro CTF 2024</td><td class="td-org">CTFROOM</td></tr>
+      <tr><td class="td-year">2022</td><td class="td-award">Winner — Cyber Stars Uganda Competition 2022 <span class="badge-win">winner</span></td><td class="td-org">Cyber Ranges & UCC</td></tr>
+    </tbody>
+  </table>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section class="section-wrap" id="certs">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">06</div>
     <h2 class="sec-title">Certifications</h2>
     <div class="sec-rule"></div>
   </div>
-  <div class="cert-grid fade-in">
+  <div class="cert-grid">
     <div class="cert-card">
       <div class="cert-name">Android Forensics with Belkasoft</div>
       <div class="cert-issuer">Belkasoft</div>
@@ -465,17 +460,17 @@ h1.hero-name .accent{color:var(--blue);}
 
 <!-- CONTACT -->
 <section class="section-wrap" id="contact">
-  <div class="sec-head fade-in">
+  <div class="sec-head">
     <div class="sec-label">07</div>
     <h2 class="sec-title">Contact</h2>
     <div class="sec-rule"></div>
   </div>
   <div class="contact-grid">
-    <div class="fade-in">
+    <div>
       <div class="contact-heading">Working on identity security, application hardening, or offensive-informed defence?</div>
       <p class="contact-sub">I'm always open to connect, collaborate, and exchange ideas with people pushing the field forward. Reach out. Let's talk.</p>
     </div>
-    <div class="fade-in" style="transition-delay:.1s">
+    <div>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/hamza-parvez/" target="_blank" class="c-link">
           <span class="c-link-label">LinkedIn</span>
@@ -490,25 +485,13 @@ h1.hero-name .accent{color:var(--blue);}
       </div>
     </div>
   </div>
-  <div class="footer fade-in">
+  <div class="footer">
     <div class="footer-copy">© 2026 Hamza Parvez</div>
     <div class="footer-loc">Nairobi, <span>Kenya</span></div>
   </div>
 </section>
 
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.07 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-window.addEventListener('load', () => {
-  document.querySelectorAll('.fade-in').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) el.classList.add('vis');
-  });
-});
-
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', () => {
