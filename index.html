@@ -3,12 +3,20 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hamza Parvez — Security Engineer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23030810'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%2300e5d4' stroke-width='3'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%2300e5d4'%3EHP%3C/text%3E%3C/svg%3E"/>
+<title>Hamza Parvez — Senior Security Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-<meta property="og:title" content="Hamza Parvez — Security Engineer"/>
-<meta property="og:description" content="Security Engineer specialising in Identity Security, Penetration Testing, and CTFs. Based in Nairobi, Kenya."/>
-<meta name="description" content="Security Engineer specialising in Identity Security, Penetration Testing, and CTFs. Based in Nairobi, Kenya."/>
+<meta property="og:title" content="Hamza Parvez — Senior Security Engineer"/>
+<meta property="og:description" content="Senior Security Engineer specialising in Identity Security, Penetration Testing, and CTFs. Based in Nairobi, Kenya."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://hamzaparvez.com/"/>
+<meta property="og:site_name" content="Hamza Parvez"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hamza Parvez — Senior Security Engineer"/>
+<meta name="twitter:description" content="Senior Security Engineer specialising in Identity Security, Penetration Testing, and CTFs. Based in Nairobi, Kenya."/>
+<link rel="canonical" href="https://hamzaparvez.com/"/>
+<meta name="description" content="Senior Security Engineer specialising in Identity Security, Penetration Testing, and CTFs. Based in Nairobi, Kenya."/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -23,9 +31,14 @@
   --c-glow: oklch(0.80 0.22 192 / 0.22);
   --v-faint: oklch(0.64 0.24 278 / 0.07);
   --v-glow: oklch(0.64 0.24 278 / 0.22);
-  --text: #6a8aa8;
+  --text: #8aa8c4;
   --light: #d4e8f8;
-  --muted: #334a60;
+  --muted: #5f7d99;
+  --nav-bg: rgba(3,8,16,0.7);
+  --nav-bg-s: rgba(3,8,16,0.92);
+  --mob-bg: rgba(3,8,16,0.97);
+  --nav-link: #93b2cc;
+  --grid: oklch(0.80 0.22 192 / 0.04);
   --line: oklch(0.80 0.22 192 / 0.1);
   --line-v: oklch(0.64 0.24 278 / 0.1);
   --glass: rgba(4,12,28,0.6);
@@ -42,9 +55,14 @@
   --c-glow: oklch(0.48 0.22 192 / 0.18);
   --v-faint: oklch(0.42 0.22 278 / 0.07);
   --v-glow: oklch(0.42 0.22 278 / 0.16);
-  --text: #4a6080;
+  --text: #364b66;
   --light: #0e1a2e;
-  --muted: #8aa4c0;
+  --muted: #5a7592;
+  --nav-bg: rgba(238,243,250,0.75);
+  --nav-bg-s: rgba(238,243,250,0.94);
+  --mob-bg: rgba(238,243,250,0.98);
+  --nav-link: #3a5068;
+  --grid: oklch(0.48 0.22 192 / 0.07);
   --line: oklch(0.48 0.22 192 / 0.15);
   --line-v: oklch(0.42 0.22 278 / 0.15);
   --glass: rgba(210,228,250,0.5);
@@ -55,7 +73,6 @@ html{scroll-behavior:smooth}
 ::-webkit-scrollbar{width:2px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--c)}
-*{cursor:none}
 
 body{
   background:var(--bg);
@@ -84,7 +101,7 @@ body{
   border:1px solid var(--line);color:var(--c);
   font-family:'JetBrains Mono',monospace;font-size:12px;
   display:flex;align-items:center;justify-content:center;
-  cursor:none;z-index:400;opacity:0;pointer-events:none;
+  z-index:400;opacity:0;pointer-events:none;
   transition:opacity .3s,background .2s,box-shadow .2s;
   text-decoration:none;
 }
@@ -112,12 +129,12 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 3rem;height:54px;
-  background:rgba(3,8,16,0.7);
+  background:var(--nav-bg);
   backdrop-filter:blur(20px);
   border-bottom:1px solid transparent;
   transition:border-color .3s,background .3s;
 }
-nav.scrolled{border-bottom-color:var(--line);background:rgba(3,8,16,0.92)}
+nav.scrolled{border-bottom-color:var(--line);background:var(--nav-bg-s)}
 .nav-logo{
   font-family:'Barlow Condensed',sans-serif;
   font-weight:700;font-size:1.1rem;letter-spacing:0.12em;color:var(--light);
@@ -125,7 +142,7 @@ nav.scrolled{border-bottom-color:var(--line);background:rgba(3,8,16,0.92)}
 .nav-logo em{color:var(--c);font-style:normal}
 .nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
 .nav-links a{
-  color:#5a7a96;text-decoration:none;
+  color:var(--nav-link);text-decoration:none;
   font-family:'JetBrains Mono',monospace;font-size:10px;
   letter-spacing:.15em;text-transform:uppercase;
   transition:color .2s;
@@ -135,23 +152,23 @@ nav.scrolled{border-bottom-color:var(--line);background:rgba(3,8,16,0.92)}
 .theme-btn{
   background:none;border:1px solid var(--muted);color:var(--muted);font-size:12px;
   width:32px;height:32px;display:flex;align-items:center;justify-content:center;
-  cursor:none;transition:color .2s,border-color .2s,box-shadow .2s;
+  transition:color .2s,border-color .2s,box-shadow .2s;
 }
 .theme-btn:hover{color:var(--c);border-color:var(--c);box-shadow:0 0 12px var(--c-glow)}
-.nav-hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:4px}
+.nav-hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
 .nav-hbg span{display:block;width:20px;height:1px;background:var(--muted);transition:transform .25s,opacity .25s}
 .nav-hbg.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .nav-hbg.open span:nth-child(2){opacity:0}
 .nav-hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .mob-menu{
   display:none;position:fixed;top:54px;left:0;right:0;
-  background:rgba(3,8,16,.97);backdrop-filter:blur(20px);
+  background:var(--mob-bg);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--line);z-index:490;
   padding:1.2rem 2rem 2rem;flex-direction:column;
 }
 .mob-menu.open{display:flex}
 .mob-menu a{
-  color:var(--muted);text-decoration:none;
+  color:var(--nav-link);text-decoration:none;
   font-family:'JetBrains Mono',monospace;font-size:11px;
   letter-spacing:.12em;text-transform:uppercase;
   padding:.85rem 0;border-bottom:1px solid var(--line);transition:color .2s;
@@ -172,8 +189,8 @@ nav.scrolled{border-bottom-color:var(--line);background:rgba(3,8,16,0.92)}
 #hero::before{
   content:'';position:absolute;inset:0;pointer-events:none;
   background-image:
-    linear-gradient(oklch(0.80 0.22 192 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.80 0.22 192 / 0.04) 1px, transparent 1px);
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size:56px 56px;z-index:0;
 }
 /* reticle decoration */
@@ -368,7 +385,8 @@ h1.hero-name .l2{
 .proj-desc{font-size:13px;color:var(--text);line-height:1.8}
 
 /* ─── SKILLS ─── */
-.sk-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);position:relative;z-index:1}
+.sk-g,.ce-g{display:flex;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;padding:1px 1px 0 0}
+.sk-g>*,.ce-g>*{flex:0 0 33.3333%;border:1px solid var(--line);margin:0 -1px -1px 0}
 .sk-group{background:var(--bg);padding:2rem;transition:background .2s;position:relative;overflow:hidden}
 .sk-group:hover{background:var(--panel-solid)}
 .sg-t{
@@ -406,7 +424,6 @@ h1.hero-name .l2{
 }
 
 /* ─── CERTS ─── */
-.ce-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);position:relative;z-index:1}
 .ce-c{
   background:var(--bg);padding:1.8rem;
   display:flex;flex-direction:column;gap:.5rem;
@@ -422,6 +439,7 @@ h1.hero-name .l2{
 .ce-n{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.95rem;color:var(--light);line-height:1.3;letter-spacing:.02em}
 .ce-i{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--v)}
 .ce-f{display:flex;align-items:center;justify-content:flex-end;margin-top:auto;padding-top:.9rem;border-top:1px solid oklch(0.80 0.22 192 / 0.06)}
+.ce-id{margin-right:auto;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--text)}
 .ce-v{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
 .ce-v:hover{color:var(--v)}
 
@@ -477,14 +495,23 @@ h1.hero-name .l2{
   .exp-item{grid-template-columns:1fr;gap:.4rem}
   .exp-item:hover{padding:2rem 0;margin:0}
   .proj-g{grid-template-columns:1fr 1fr}
-  .sk-g{grid-template-columns:1fr 1fr}
-  .ce-g{grid-template-columns:1fr 1fr}
+  .sk-g>*,.ce-g>*{flex-basis:50%}
   .ct-g{grid-template-columns:1fr;gap:2.5rem}
   .footer{flex-direction:column;gap:.8rem;align-items:flex-start}
   .aw-t .td-o{display:none}
 }
 @media(max-width:580px){
-  .proj-g,.sk-g,.ce-g{grid-template-columns:1fr}
+  .proj-g{grid-template-columns:1fr}
+  .sk-g>*,.ce-g>*{flex-basis:100%}
+}
+
+/* ─── POINTER / MOTION ─── */
+@media (hover:hover) and (pointer:fine){*{cursor:none}}
+@media not all and (hover:hover) and (pointer:fine){#cur,#cur-r{display:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -534,7 +561,7 @@ h1.hero-name .l2{
 <!-- HERO -->
 <section id="hero">
   <div class="reticle"><div class="reticle-cross"></div></div>
-  <div class="hero-kicker">Security Engineer · Nairobi, Kenya</div>
+  <div class="hero-kicker">Senior Security Engineer · Nairobi, Kenya</div>
   <h1 class="hero-name">HAMZA<span class="l2">PARVEZ</span></h1>
   <div class="hero-foot">
     <div>
@@ -561,17 +588,17 @@ h1.hero-name .l2{
   <div class="sec-h rv"><div class="sec-n">01</div><h2 class="sec-t">About</h2><div class="sec-rule"></div></div>
   <div class="about-g">
     <div class="about-t rv d1">
-      <p>I am a Security Engineer specialising in <strong>identity security</strong> spanning IAM, PAM, SSO, and MFA among others, as well as vulnerability assessment and penetration testing. My work focuses on strengthening systems by understanding how access is granted, how controls can fail, and where security measures need reinforcing.</p>
+      <p>I am a Senior Security Engineer specialising in <strong>identity security</strong> spanning IAM, PAM, SSO, and MFA among others, as well as vulnerability assessment and penetration testing. My work focuses on strengthening systems by understanding how access is granted, how controls can fail, and where security measures need reinforcing.</p>
       <p>I approach every engagement from <strong>both the builder's and the adversary's perspective</strong>. Hands-on CTF problem-solving sharpens my ability to analyse systems, trace attack paths, and develop practical mitigation strategies, keeping security decisions grounded in real exploit behaviour rather than theory alone.</p>
       <p>Beyond my day-to-day engineering work, I'm deeply involved in the East African security community — organising HTB meetups, speaking at events, and authoring challenges that help sharpen the next generation of professionals across Kenya, Uganda, and internationally.</p>
       <p>I value <strong>clarity, reliability, and continuous refinement</strong>. My goal is to contribute to scalable, resilient security foundations that enable organisations to operate with confidence.</p>
     </div>
     <div class="rv d2">
       <div class="info-card">
-        <div class="ir"><div class="il">Current Role</div><div class="iv">Cyber Security Engineer<br/>Isolutions Associates Ltd</div></div>
+        <div class="ir"><div class="il">Current Role</div><div class="iv">Senior Security Engineer<br/>Isolutions Associates Ltd</div></div>
         <div class="ir"><div class="il">Based in</div><div class="iv">Nairobi, Kenya</div></div>
-        <div class="ir"><div class="il">CTF Team</div><div class="iv">p3rf3ctr00t</div></div>
-        <div class="ir"><div class="il">Communities</div><div class="iv">Hack The Box · Bug Bounty KE<br/>Uguntu · CTFROOM · CTFZone</div></div>
+        <div class="ir"><div class="il">CTF Team</div><div class="iv">PerfectRoot</div></div>
+        <div class="ir"><div class="il">Communities</div><div class="iv">Hack The Box · Bug Bounty KE<br/>Uguntu · AfricaHackon · CTFZone</div></div>
         <div class="ir"><div class="il">Focus</div><div class="iv">Identity Security · Offensive Sec<br/>AD · OSINT</div></div>
       </div>
     </div>
@@ -584,11 +611,11 @@ h1.hero-name .l2{
   <div class="exp-wrap rv d1">
     <div class="exp-item">
       <div><div class="exp-d">Aug 2023 – Present</div><div class="exp-tp">Full-time</div></div>
-      <div><div class="exp-co">Isolutions Associates Ltd</div><div class="exp-ro">Cyber Security Engineer</div><div class="exp-de">Identity security, vulnerability assessments, and security hardening across enterprise environments. Translating offensive findings into actionable, resilient defensive architecture.</div></div>
+      <div><div class="exp-co">Isolutions Associates Ltd</div><div class="exp-ro">Senior Security Engineer</div><div class="exp-de">Identity security, vulnerability assessments, and security hardening across enterprise environments. Translating offensive findings into actionable, resilient defensive architecture.</div></div>
     </div>
     <div class="exp-item">
       <div><div class="exp-d">Sep 2023 – Present</div><div class="exp-tp">Full-time</div></div>
-      <div><div class="exp-co">P3rf3ctr00t</div><div class="exp-ro">CTF Player and Author</div><div class="exp-de">Designing and authoring Capture The Flag challenges across OSINT, Cryptography, and security domains, while actively competing in cybersecurity competitions on the global stage.</div></div>
+      <div><div class="exp-co">PerfectRoot</div><div class="exp-ro">CTF Player and Author</div><div class="exp-de">Designing and authoring Capture The Flag challenges across OSINT, Cryptography, and security domains, while actively competing in cybersecurity competitions on the global stage.</div></div>
     </div>
     <div class="exp-item">
       <div><div class="exp-d">Jan 2026 – Present</div><div class="exp-tp">Ambassador</div></div>
@@ -607,16 +634,16 @@ h1.hero-name .l2{
       <div><div class="exp-co">AfricaHackon</div><div class="exp-ro">Content Engineer</div><div class="exp-de">Engineering CTF challenges and content, delivering talks, and supporting community initiatives.</div></div>
     </div>
     <div class="exp-item">
-      <div><div class="exp-d">Mar 2024 – Present</div><div class="exp-tp">Community</div></div>
-      <div><div class="exp-co">CTFROOM</div><div class="exp-ro">Content Engineer</div><div class="exp-de">Designing and authoring CTF challenges across OSINT, cryptography, and security domains for competitions and training platforms across East Africa.</div></div>
-    </div>
-    <div class="exp-item">
       <div><div class="exp-d">Sep 2020 – Present</div><div class="exp-tp">Community</div></div>
       <div><div class="exp-co">Uguntu</div><div class="exp-ro">Content Engineer &amp; Community Contributor</div><div class="exp-de">Long-standing contributor to Uganda's cybersecurity community; creating educational content and running competitions for emerging security professionals.</div></div>
     </div>
     <div class="exp-item">
       <div><div class="exp-d">Jan 2021 – Present</div><div class="exp-tp">Community</div></div>
       <div><div class="exp-co">Bug Bounty KE</div><div class="exp-ro">Community Member</div><div class="exp-de">Active member of Kenya's bug bounty community — attending sessions, hosting events, and sharing security research and insights with the local practitioner network.</div></div>
+    </div>
+    <div class="exp-item">
+      <div><div class="exp-d">Mar 2024 – Sep 2026</div><div class="exp-tp">Community</div></div>
+      <div><div class="exp-co">CTFROOM</div><div class="exp-ro">Content Engineer</div><div class="exp-de">Designing and authoring CTF challenges across OSINT, cryptography, and security domains for competitions and training platforms across East Africa.</div></div>
     </div>
   </div>
 </section>
@@ -630,7 +657,7 @@ h1.hero-name .l2{
     <div class="proj-c"><div class="proj-stat">5+</div><div class="proj-badge">App Security</div><div class="proj-name">Enterprise Web Application Scanning</div><div class="proj-desc">Deployed and configured enterprise-grade web application scanning tools for continuous security assessment of client-facing and internal applications.</div></div>
     <div class="proj-c"><div class="proj-stat">3+</div><div class="proj-badge">Identity Security</div><div class="proj-name">Enterprise MFA Deployments</div><div class="proj-desc">Rolled out multi-factor authentication across enterprise environments — strengthening access security and reducing credential-based attack surface for critical systems.</div></div>
     <div class="proj-c"><div class="proj-stat">2+</div><div class="proj-badge">IAM</div><div class="proj-name">Enterprise IAM Implementations</div><div class="proj-desc">Architected and implemented identity and access management frameworks for large organisations — defining access policies, role structures, and lifecycle management processes.</div></div>
-    <div class="proj-c"><div class="proj-stat">3+</div><div class="proj-badge">CTF</div><div class="proj-name">International CTF Organisations</div><div class="proj-desc">Organised international Capture the Flag competitions end-to-end — from infrastructure setup and challenge design to platform management, scoring, and post-event wrap-up.</div></div>
+    <div class="proj-c"><div class="proj-stat">6+</div><div class="proj-badge">CTF</div><div class="proj-name">International CTF Organisations</div><div class="proj-desc">Organised international Capture the Flag competitions end-to-end — from infrastructure setup and challenge design to platform management, scoring, and post-event wrap-up.</div></div>
   </div>
 </section>
 
@@ -639,8 +666,8 @@ h1.hero-name .l2{
   <div class="sec-h rv"><div class="sec-n">04</div><h2 class="sec-t">Skills</h2><div class="sec-rule"></div></div>
   <div class="sk-g rv d1">
     <div class="sk-group"><div class="sg-t">Identity Security</div><div class="sk-items"><span class="sk-chip">IAM</span><span class="sk-chip">PAM</span><span class="sk-chip">SSO</span><span class="sk-chip">MFA</span><span class="sk-chip">Zero Trust</span><span class="sk-chip">Access Control</span><span class="sk-chip">Privileged Access</span></div></div>
-    <div class="sk-group"><div class="sg-t">Offensive Security</div><div class="sk-items"><span class="sk-chip">Penetration Testing</span><span class="sk-chip">Vulnerability Assessment</span><span class="sk-chip">Exploit Development</span><span class="sk-chip">Red Teaming</span></div></div>
-    <div class="sk-group"><div class="sg-t">Specialisations</div><div class="sk-items"><span class="sk-chip">OSINT</span><span class="sk-chip">Cryptography</span><span class="sk-chip">Web App Security</span><span class="sk-chip">Attack Path Analysis</span><span class="sk-chip">Threat Modelling</span></div></div>
+    <div class="sk-group"><div class="sg-t">Offensive Security</div><div class="sk-items"><span class="sk-chip">Active Directory Pentesting</span><span class="sk-chip">Network Pentesting</span><span class="sk-chip">Web App Pentesting</span><span class="sk-chip">Vulnerability Assessment</span><span class="sk-chip">Exploit Development</span><span class="sk-chip">Red Teaming</span></div></div>
+    <div class="sk-group"><div class="sg-t">Specialisations</div><div class="sk-items"><span class="sk-chip">OSINT</span><span class="sk-chip">Cryptography</span><span class="sk-chip">Web App Security</span><span class="sk-chip">API Security</span><span class="sk-chip">AD Security</span><span class="sk-chip">Attack Path Analysis</span><span class="sk-chip">Threat Modelling</span></div></div>
     <div class="sk-group"><div class="sg-t">Defensive Security</div><div class="sk-items"><span class="sk-chip">Security Hardening</span><span class="sk-chip">Incident Response</span><span class="sk-chip">Security Architecture</span><span class="sk-chip">Risk Assessment</span><span class="sk-chip">Control Validation</span></div></div>
     <div class="sk-group"><div class="sg-t">Community &amp; Outreach</div><div class="sk-items"><span class="sk-chip">CTF Challenge Authoring</span><span class="sk-chip">CTF Infra &amp; Ops</span><span class="sk-chip">Security Awareness Training</span></div></div>
   </div>
@@ -654,15 +681,25 @@ h1.hero-name .l2{
     <table class="aw-t">
       <thead><tr><th>Year</th><th>Award / Contribution</th><th>Organisation</th></tr></thead>
       <tbody>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author &amp; Trainer — UCC Cyber Stars Uganda 2026</td><td class="td-o">Uguntu</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — CenteHack CTF 2026</td><td class="td-o">Uguntu</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author &amp; Organiser — r00t rush CTF</td><td class="td-o">Kenyatta University CyberSec Community</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author &amp; Organiser — 31 nights of r00t CTF</td><td class="td-o">PerfectRoot</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — IPT 2025/26 CTF Final</td><td class="td-o">Dar es Salaam Institute of Technology</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author &amp; Organiser — East Africa Intervarsity Quals and Finals</td><td class="td-o">PerfectRoot</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — AFRICC Quals CTF</td><td class="td-o">AFRICC</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — BIC DEFCON 34 CTF</td><td class="td-o">Blacks in CyberSecurity</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — CyBlack UK CTF 2026</td><td class="td-o">Blacks in CyberSecurity</td></tr>
+        <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — Dirtbags &amp; Flags CTF 2026</td><td class="td-o">Dirtbags &amp; Flags</td></tr>
         <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — ECOWAS CTF 2026</td><td class="td-o">CTFZone</td></tr>
         <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — Cyber Premier League, Tanzania</td><td class="td-o">CTFZone</td></tr>
         <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — 0xfun CTF 2026</td><td class="td-o">0xfun</td></tr>
         <tr><td class="td-y">2026</td><td class="td-a">Challenge Author — MKU/Zetech CTF 2026</td><td class="td-o">MKU / Zetech University</td></tr>
-        <tr><td class="td-y">2025</td><td class="td-a">Winner — AfricaCERT FIRST Cyber Drill <span class="bw">winner</span></td><td class="td-o">AfricaCERT · p3rf3ctr00t</td></tr>
+        <tr><td class="td-y">2025</td><td class="td-a">Winner — AfricaCERT FIRST Cyber Drill <span class="bw">winner</span></td><td class="td-o">AfricaCERT · PerfectRoot</td></tr>
         <tr><td class="td-y">2025</td><td class="td-a">Winner — Cyberlympics Kenya 2025 <span class="bw">winner</span></td><td class="td-o">Africa Cyber Defense Forum</td></tr>
         <tr><td class="td-y">2025</td><td class="td-a">Challenge Author &amp; Instructor — Cyber Stars Uganda 2025</td><td class="td-o">UCC &amp; UgCert · Uguntu</td></tr>
         <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — Nahamcon Winter CTF 2025</td><td class="td-o">Nahamcon</td></tr>
-        <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — P3rf3ctr00t CTF 2025</td><td class="td-o">p3rf3ctr00t</td></tr>
+        <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — PerfectRoot CTF 2025</td><td class="td-o">PerfectRoot</td></tr>
         <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — BitSiege CTF 2025</td><td class="td-o">Bitwall.ke</td></tr>
         <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — CyberQuest CTF 2025</td><td class="td-o">CTFROOM &amp; Tech Sisters Kenya</td></tr>
         <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — Dewald Roode Hackathon 2025</td><td class="td-o">CTFROOM &amp; USIU</td></tr>
@@ -671,7 +708,7 @@ h1.hero-name .l2{
         <tr><td class="td-y">2025</td><td class="td-a">Challenge Author — Digital Safe Ltd Zambia CTF 2025</td><td class="td-o">CTFROOM &amp; DSL Zambia</td></tr>
         <tr><td class="td-y">2024</td><td class="td-a">Runners Up — BIC Defcon CTF 2024 <span class="bw">top 2</span></td><td class="td-o">Blacks in Cyber &amp; Defcon</td></tr>
         <tr><td class="td-y">2024</td><td class="td-a">Challenge Author — Bsides Nairobi CTF 2024</td><td class="td-o">Bsides Nairobi</td></tr>
-        <tr><td class="td-y">2024</td><td class="td-a">Challenge Author — P3rf3ctr00t CTF 2024</td><td class="td-o">p3rf3ctr00t</td></tr>
+        <tr><td class="td-y">2024</td><td class="td-a">Challenge Author — PerfectRoot CTF 2024</td><td class="td-o">PerfectRoot</td></tr>
         <tr><td class="td-y">2024</td><td class="td-a">Challenge Author — East Africa Intervarsity CTF 2024</td><td class="td-o">CTFROOM</td></tr>
         <tr><td class="td-y">2024</td><td class="td-a">Challenge Author — CyberPro CTF 2024</td><td class="td-o">CTFROOM</td></tr>
         <tr><td class="td-y">2022</td><td class="td-a">Winner — Cyber Stars Uganda Competition 2022 <span class="bw">winner</span></td><td class="td-o">Cyber Ranges &amp; UCC</td></tr>
@@ -684,15 +721,22 @@ h1.hero-name .l2{
 <section class="sw" id="certs" data-n="06">
   <div class="sec-h rv"><div class="sec-n">06</div><h2 class="sec-t">Certifications</h2><div class="sec-rule"></div></div>
   <div class="ce-g rv d1">
-    <div class="ce-c"><div class="ce-n">SailPoint Identity Security Leader</div><div class="ce-i">SailPoint</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Junior Penetration Tester (eJPT)</div><div class="ce-i">INE</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Certified Cloud Associate (ICCA)</div><div class="ce-i">INE</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Android Forensics with Belkasoft</div><div class="ce-i">Belkasoft</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Windows Forensics with Belkasoft</div><div class="ce-i">Belkasoft</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Certified Blue Team Practitioner (CBTP)</div><div class="ce-i">The SecOps Group</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Certified Network Security Practitioner (CNSP)</div><div class="ce-i">The SecOps Group</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">Certified Social Engineering Defense Practitioner (CSEDP)</div><div class="ce-i">The SecOps Group</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
-    <div class="ce-c"><div class="ce-n">McKinsey Forward Program</div><div class="ce-i">McKinsey &amp; Company</div><div class="ce-f"><a href="#" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Penetration Testing Specialist (CPTS)</div><div class="ce-i">Hack The Box</div><div class="ce-f"><a href="https://www.credly.com/badges/8edf10ad-d284-4446-94c4-f7981ccc77e0/public_url" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Junior Cybersecurity Associate (CJCA)</div><div class="ce-i">Hack The Box</div><div class="ce-f"><a href="https://www.credly.com/earner/earned/badge/6d1b4c8e-f830-4471-ad40-3552939ff700" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">APIsec Certified Practitioner (ACP)</div><div class="ce-i">APIsec University</div><div class="ce-f"><a href="https://www.credly.com/badges/54113cb4-2d44-4e28-98c6-16b00a110b6a" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified API Security Analyst (CASA)</div><div class="ce-i">APIsec University</div><div class="ce-f"><a href="https://www.credly.com/badges/dd94c1f1-be65-4bb6-928c-d81bf98d53af" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Red Team Analyst (CRTA)</div><div class="ce-i">CyberWarFare Labs</div><div class="ce-f"><a href="https://labs.cyberwarfare.live/credential/achievement/6a84ea4ce8da8e3978e54550" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">CyberArk Certified Defender PAM</div><div class="ce-i">CyberArk</div><div class="ce-f"><a href="https://training.cyberark.com/share/v1/gamification/assigned_badge/66278ceb-89a9-4fdd-ada2-a95462ae36bf/shared?lang=en&amp;t=1785325868627" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Practical Network Penetration Tester (PNPT)</div><div class="ce-i">TCM Security</div><div class="ce-f"><a href="https://www.credential.net/8a9e6711-16db-444f-821f-08c1694b9d26#acc.RJjGpO4k" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">SailPoint Identity Security Leader</div><div class="ce-i">SailPoint</div><div class="ce-f"><a href="https://verify.skilljar.com/c/whzf59wvc627" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Junior Penetration Tester (eJPT)</div><div class="ce-i">INE</div><div class="ce-f"><a href="https://certs.ine.com/2bb18ea5-a384-461e-b319-bf69c7afd039#acc.Hzygm90Q" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Cloud Associate (ICCA)</div><div class="ce-i">INE</div><div class="ce-f"><a href="https://certs.ine.com/cdb90ec5-ac76-4398-b435-108dcc9dbb24#acc.RdzWLEiQ" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Android Forensics with Belkasoft</div><div class="ce-i">Belkasoft</div><div class="ce-f"><span class="ce-id">ID: tv4et2jbcf</span></div></div>
+    <div class="ce-c"><div class="ce-n">Windows Forensics with Belkasoft</div><div class="ce-i">Belkasoft</div><div class="ce-f"><span class="ce-id">ID: patdgcneuq</span></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Blue Team Practitioner (CBTP)</div><div class="ce-i">The SecOps Group</div><div class="ce-f"><span class="ce-id">ID: 10899438</span><a href="https://pentestingexams.com/certificate-validation/" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Network Security Practitioner (CNSP)</div><div class="ce-i">The SecOps Group</div><div class="ce-f"><span class="ce-id">ID: 10899330</span><a href="https://pentestingexams.com/certificate-validation/" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">Certified Social Engineering Defense Practitioner (CSEDP)</div><div class="ce-i">The SecOps Group</div><div class="ce-f"><span class="ce-id">ID: 10897496</span><a href="https://pentestingexams.com/certificate-validation/" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
+    <div class="ce-c"><div class="ce-n">McKinsey Forward Program</div><div class="ce-i">McKinsey &amp; Company</div><div class="ce-f"><a href="https://www.credly.com/badges/b52ec26b-5e7b-421e-a9fc-e93b494aa183/public_url" target="_blank" rel="noopener" class="ce-v">Verify ↗</a></div></div>
   </div>
 </section>
 
@@ -709,9 +753,9 @@ h1.hero-name .l2{
         <a href="https://www.linkedin.com/in/hamza-parvez/" target="_blank" class="cl">
           <span class="cl-l">LinkedIn</span><span class="cl-v">Hamza Parvez</span><span class="cl-a">↗</span>
         </a>
-        <a href="/cdn-cgi/l/email-protection#771e191118371f161a0d1607160501120d5914181a" class="cl">
-          <span class="cl-l">Email</span><span class="cl-v"><span class="__cf_email__" data-cfemail="31585f575e7159505c4b5041504347544b1f525e5c">[email&#160;protected]</span></span><span class="cl-a">→</span>
-        </a>
+        <!--email_off--><a href="mailto:info@hamzaparvez.com" class="cl">
+          <span class="cl-l">Email</span><span class="cl-v">info@hamzaparvez.com</span><span class="cl-a">→</span>
+        </a><!--/email_off-->
       </div>
     </div>
   </div>
@@ -720,13 +764,13 @@ h1.hero-name .l2{
     <div class="flinks">
       <a href="https://www.linkedin.com/in/hamza-parvez/" target="_blank" class="fl">LinkedIn ↗</a>
       <a href="https://blog.lordsudo.com" target="_blank" class="fl">Blog ↗</a>
-      <a href="/cdn-cgi/l/email-protection#375e595158775f565a4d5647564541524d1954585a" class="fl">Email ↗</a>
+      <!--email_off--><a href="mailto:info@hamzaparvez.com" class="fl">Email ↗</a><!--/email_off-->
     </div>
     <div class="floc">Nairobi, <span>Kenya</span></div>
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── Cursor ──
 const cur = document.getElementById('cur');
 const ring = document.getElementById('cur-r');
